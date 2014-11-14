@@ -1,0 +1,12 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  character_id: 1
+  description: MyString
+
+two:
+  event_id: 1
+  character_id: 1
+  description: MyString
