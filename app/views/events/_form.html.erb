@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :chapter_id %><br>
-    <%= f.number_field :chapter_id %>
+    <%= f.select :chapter_id, Chapter.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
+	
   </div>
   <div class="actions">
     <%= f.submit %>
