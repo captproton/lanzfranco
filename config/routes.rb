@@ -2,18 +2,19 @@ Rails.application.routes.draw do
 
   get 'novels/index'
 
+
   resources :characters do
-    resources :events
+    resources :events, shallow: true
   end
 
   resources :events do
-    resources :characters
+    resources :characters, shallow: true
   end
 
   resources :chapters
 
   resources :books do
-    resources :chapters
+    resources :chapters, shallow: true
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
