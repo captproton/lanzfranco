@@ -7,7 +7,7 @@
 
 <p>
   <strong>Chapter:</strong>
-  <%= @event.chapter_id %><br />
+  <%= @event.chapter_id %> <%= link_to @event.chapter_id, :controller => "chapters", :action => "edit" %><br />
   <%= @event.chapter.title %>
 </p>
 

@@ -1,7 +1,7 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
-  before_filter :load_parent
+  # before_filter :load_parent
   # GET /chapters
   # GET /chapters.json
   def index
@@ -56,7 +56,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter.destroy
     respond_to do |format|
-      format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Chapter was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
