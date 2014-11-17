@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :characters, shallow: true
+    resources :participations, shallow: true
   end
 
   resources :chapters

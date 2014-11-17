@@ -1,10 +1,10 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
+<%= form_for(@paticipation) do |f| %>
+  <% if @participation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(@participation.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-      <% @event.errors.full_messages.each do |message| %>
+      <% @participation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -16,8 +16,8 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :chapter_id %><br>
-    <%= f.select :chapter_id, Chapter.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
+    <%= f.label :character_id %><br>
+    <%= f.select :character_id, Character.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
 	
   </div>
   <div class="actions">
