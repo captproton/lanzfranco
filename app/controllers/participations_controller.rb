@@ -56,14 +56,14 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation.destroy
     respond_to do |format|
-      format.html { redirect_to participations_url, notice: 'Participation was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Participation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
   def load_parent
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:event_id]) if params[:event_id]
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_participation

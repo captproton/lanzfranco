@@ -3,16 +3,12 @@ Rails.application.routes.draw do
   get 'novels/index'
 
 
-  resources :characters do
-    resources :events, shallow: true
-  end
+  resources :characters
 
   resources :events do
     resources :characters, shallow: true
     resources :participations, shallow: true
   end
-
-  resources :chapters
 
   resources :books do
     resources :chapters, shallow: true

@@ -7,15 +7,16 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  # GET /events/new
+  def new
+    @event = Event.new
+  end
+
+
   # GET /events/1
   # GET /events/1.json
   def show
     @chapter = @event.chapter
-  end
-
-  # GET /events/new
-  def new
-    @event = Event.new
   end
 
   # GET /events/1/edit
@@ -65,7 +66,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find(params[:id]) if params[:id] != 'new'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
