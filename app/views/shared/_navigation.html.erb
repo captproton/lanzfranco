@@ -1,0 +1,11 @@
+<div class="container-fluid">
+	<%= nav_bar fixed: :top, brand: 'Out of Time', :responsive => true do %>
+		<%= menu_group do %>
+			<%= menu_item 'Home', root_path  %>
+			<%= menu_divider %>
+			<%= menu_item "Books/Chapters", books_path  %>
+			<%= menu_item "Characters", characters_path  %>
+			<%= menu_item "Events", events_path  %>
+		<% end %>
+	<% end %>
+</div>

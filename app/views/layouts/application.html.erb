@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lanzfranco</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Lanz Franco" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<%= render :partial => 'shared/navigation' %>
+
+	<div style="padding-top: 60px"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9">
+				<%= bootstrap_flash %>
+				<%= yield %>
+			</div>
+
+		</div>
+		<div class="col-lg-3">
+			<h3>Sidebar Example</h3>
+			<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li class="nav-header">Sidebar</li>
+					<li><%= link_to 'Link 1', '/path1' %></li>
+					<li><%= link_to 'Link 2', '/path2' %></li>
+					<li><%= link_to 'Link 3', '/path3' %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>&copy; Carl Tanner 2014</p>
+	</footer>
+</div>
+
+
 
 </body>
 </html>
