@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1> <%= @event.title %>
+  <%= link_to 'Back', events_path, :class => 'btn btn-default' %>  
+  <%= link_to 'Edit', edit_event_path(@event), :class => 'btn btn-default' %> 
+  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+  </h1>	
+  
+</div>
+<div class="col-md-10">
+	<div class="row">
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Character</th>
+		      <th ></th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @event.participations.each do |participation| %>
+		      <tr>
+		        <td><%= participation.character.name %> </td>
+				<td>
+<%= link_to 'Remove from Event', participation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+		<%= link_to 'Add Character to Event', new_event_participation_path(event_id: params[:id]), class: "btn btn-primary" %>
+		
+	</div>
+</div>

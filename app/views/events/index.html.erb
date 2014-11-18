@@ -1,0 +1,29 @@
+				<div class="page-header">
+					<h1>Events</h1>
+				</div>
+				<div class="col-md-10">
+					<div class="row">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Event</th>
+									<th>Chapter</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+							    <% @events.each do |event| %>
+							      <tr>
+							        <td><%= link_to event.title, event %></td>
+							        <td><%= link_to event.chapter, event.chapter if event.chapter %></td>
+							        <td>
+<%= link_to 'Edit', edit_event_path(event), class: "btn btn-default btn-xs"%>
+<%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+							      </tr>
+							    <% end %>
+								
+							</tbody>
+						</table>
+						<%= link_to 'New', new_event_path, class: "btn btn-primary" %>
+					</div>
+				</div>

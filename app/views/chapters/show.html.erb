@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @chapter.title %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @chapter.book.title %>
+</p>
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', book_path(@chapter.book) %>

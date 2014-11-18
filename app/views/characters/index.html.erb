@@ -1,0 +1,27 @@
+				<div class="page-header">
+					<h1>Characters</h1>
+				</div>
+				<div class="col-md-10">
+					<div class="row">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+    						<% @characters.each do |character| %>
+							      <tr>
+							        <td><%= link_to character.name, character %></td>
+							        <td>
+<%= link_to 'Edit', edit_character_path(character), class: "btn btn-default btn-xs"%>
+<%= link_to 'Delete', character, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+							      </tr>
+							<% end %>
+								
+							</tbody>
+						</table>
+						<%= link_to 'New', new_character_path, class: "btn btn-primary" %>
+					</div>
+				</div>

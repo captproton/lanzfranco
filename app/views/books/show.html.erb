@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1> <%= @book.title %>
+  <%= link_to 'Back', books_path, :class => 'btn btn-default' %>  
+  <%= link_to 'Edit', edit_book_path(@book), :class => 'btn btn-default' %> 
+  <%= link_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+  </h1>	
+  
+</div>
+<div class="col-md-10">
+	<div class="row">
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Chapter</th>
+		      <th ></th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @book.chapters.each do |chapter| %>
+		      <tr>
+		        <td><%= link_to chapter.title, chapter_path(chapter) %> </td>
+							        <td>
+<%= link_to 'Edit', edit_chapter_path(chapter), class: "btn btn-default btn-xs"%>
+<%= link_to 'Delete', chapter, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+		<%= link_to 'New Chapter', new_book_chapter_path(book_id: params[:id]), class: "btn btn-primary" %>
+		
+	</div>
+</div>

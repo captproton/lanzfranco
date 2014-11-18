@@ -1,0 +1,18 @@
+<!-- event_participations -->
+<%= form_for([@event, @participation]) do |f| %>
+
+  <div class="field">
+    <%= f.label :character %><br>
+    <%= f.select :character_id, Character.all.collect { |c| [ c.name, c.id ] }, include_blank: true %>
+	
+  </div>
+
+  <div class="field">
+    <%# f.label :description %><br>
+	<%# f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Character" %>
+  </div>
+<% end %>
