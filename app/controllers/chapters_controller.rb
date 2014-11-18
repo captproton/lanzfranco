@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_parent
   # before_filter :load_parent
   # GET /chapters
   # GET /chapters.json
@@ -29,7 +29,7 @@ class ChaptersController < ApplicationController
 
     respond_to do |format|
       if @chapter.save
-        format.html { redirect_to [@book, @chapter], notice: 'Chapter was successfully created.' }
+        format.html { redirect_to @book, notice: 'Chapter was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @chapter.errors, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class ChaptersController < ApplicationController
 
   private
   def load_parent
-    @book = Book.find(params[:book_id])
+    @book = Book.find(params[:book_id]) if params[:book_id]
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_chapter
