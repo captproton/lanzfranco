@@ -15,7 +15,7 @@
 							    <% @events.each do |event| %>
 							      <tr>
 							        <td><%= link_to event.title, event %></td>
-							        <td><%= link_to event.chapter, event.chapter if event.chapter %></td>
+							        <td><%= link_to event.chapter.title, event.chapter if event.chapter %></td>
 							        <td>
 <%= link_to 'Edit', edit_event_path(event), class: "btn btn-default btn-xs"%>
 <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
