@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :load_parent
+  
 
   # GET /events
   # GET /events.json
@@ -9,7 +11,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = @chapter.events.new
   end
 
 
@@ -26,11 +28,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = @chapter.events.new(event_params)
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event.chapter, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -65,6 +67,9 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def load_parent
+      @chapter = Chapter.find(params[:chapter_id]) if params[:chapter_id]
+    end
     def set_event
       @event = Event.find(params[:id]) if params[:id] != 'new'
     end
