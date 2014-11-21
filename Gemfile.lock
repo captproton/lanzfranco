@@ -89,8 +89,6 @@ GEM
     guard-minitest (2.3.2)
       guard (~> 2.0)
       minitest (>= 3.0)
-    guard-passenger (0.6.0)
-      guard (>= 1.1.0.beta)
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.6.11)
@@ -249,7 +247,6 @@ DEPENDENCIES
   guard (~> 2.8)
   guard-bundler (~> 2.0.0)
   guard-minitest
-  guard-passenger
   jbuilder (~> 2.0)
   jquery-rails
   kramdown
