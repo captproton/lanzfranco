@@ -52,7 +52,7 @@ group :development, :test do
   end
   
   gem 'guard-minitest'
-  gem 'guard-passenger'
+  # gem 'guard-passenger'
   gem "guard-bundler", "~> 2.0.0"
   gem 'rr', '~> 1.1.2'
   gem 'activerecord-nulldb-adapter'
